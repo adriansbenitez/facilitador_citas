@@ -39,7 +39,7 @@ class _ListServicesState extends State<ListServices> {
   SingleServiceModel? _currentService;
   MapType _mapType = MapType.normal;
   PageType _pageType = PageType.list;
-  ServiceViewType _listMode = ServiceViewType.card;
+  ServiceViewType _listMode = ServiceViewType.grid;
   FilterModel _filter = FilterModel.fromDefault();
 
   @override
@@ -199,8 +199,8 @@ class _ListServicesState extends State<ListServices> {
       CameraUpdate.newCameraPosition(
         CameraPosition(
           target: LatLng(
-            /*service.location!.latitude*/ -34.909116,
-            /*service.location!.longitude*/ -56.182537,
+            service.lat,
+            service.long,
           ),
           zoom: 15.0,
         ),
@@ -218,14 +218,13 @@ class _ListServicesState extends State<ListServices> {
     final currentLocation = AppBloc.locationCubit.state;
 
     if (currentLocation != null && _currentService != null) {
-      SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.light);
       SVProgressHUD.show();
       final result = await _polylinePoints.getRouteBetweenCoordinates(
         Application.googleAPI,
         PointLatLng(currentLocation.latitude, currentLocation.longitude),
         PointLatLng(
-          /*_currentService!.location!.latitude*/ -56.182537,
-          /*_currentService!.location!.longitude*/ -56.182537,
+          _currentService!.lat,
+          _currentService!.long,
         ),
       );
       if (result.points.isNotEmpty) {
@@ -458,8 +457,8 @@ class _ListServicesState extends State<ListServices> {
           if (state.list.isNotEmpty) {
             initPosition = CameraPosition(
               target: LatLng(
-                /*state.list[0].location!.latitude*/ -56.182537,
-                /*state.list[0].location!.longitude*/ 3,
+                state.list[0].lat,
+                state.list[0].long,
               ),
               zoom: 14.4746,
             );
@@ -468,10 +467,13 @@ class _ListServicesState extends State<ListServices> {
             for (var item in state.list) {
               final markerId = MarkerId(item.id.toString());
               final marker = Marker(
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                  BitmapDescriptor.hueBlue,
+                ),
                 markerId: markerId,
                 position: LatLng(
-                  /*item.location!.latitude*/ 3,
-                  /*item.location!.longitude*/ 3,
+                  item.lat,
+                  item.long,
                 ),
                 infoWindow: InfoWindow(title: item.name),
                 onTap: () {

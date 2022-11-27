@@ -252,7 +252,7 @@ class AppServiceItem extends StatelessWidget {
                                 : Container()
                           ],
                         ),
-                        Row(
+                        /*Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Padding(
@@ -265,7 +265,7 @@ class AppServiceItem extends StatelessWidget {
                               ),
                             )
                           ],
-                        )
+                        )*/
                       ],
                     ),
                   );
@@ -316,7 +316,7 @@ class AppServiceItem extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Row(
+              /*Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   AppTag(
@@ -324,7 +324,7 @@ class AppServiceItem extends StatelessWidget {
                     type: TagType.rate,
                   ),
                   const SizedBox(width: 4),
-                  /*RatingBar.builder(
+                  RatingBar.builder(
                     initialRating: item!.rate,
                     minRating: 1,
                     allowHalfRating: true,
@@ -337,15 +337,15 @@ class AppServiceItem extends StatelessWidget {
                     ),
                     onRatingUpdate: (rate) {},
                     ignoreGestures: true,
-                  ),*/
+                  ),
                 ],
-              ),
+              )*/
               const SizedBox(height: 8),
-              Text(
+             /* Text(
                 item!.name,
                 maxLines: 1,
                 style: Theme.of(context).textTheme.caption,
-              ),
+              ),*/
             ],
           ),
         );
@@ -834,7 +834,8 @@ class AppServiceItem extends StatelessWidget {
           );
         }
         return SizedBox(
-          width: 110,
+          height: 150,
+          width: 150,
           child: GestureDetector(
             onTap: onPressed,
             child: Column(

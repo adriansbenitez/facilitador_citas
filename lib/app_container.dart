@@ -66,7 +66,7 @@ class _AppContainerState extends State<AppContainer> {
         title = 'home';
         break;
       case Routes.appointments:
-        iconData = Icons.schedule;
+        iconData = Icons.assignment;
         title = 'appointments';
         break;
       case Routes.chat:

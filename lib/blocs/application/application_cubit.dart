@@ -37,7 +37,7 @@ class ApplicationCubit extends Cubit<ApplicationState> {
           darkOption = DarkOption.alwaysOn;
           break;
         default:
-          darkOption = DarkOption.dynamic;
+          darkOption = DarkOption.alwaysOff; // TODO Arreglar aqui
       }
     }
 

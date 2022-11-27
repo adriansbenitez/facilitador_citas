@@ -35,6 +35,8 @@ class SingleServiceModel {
     required this.categorie,
     required this.staffs,
     required this.locations,
+    required this.lat,
+    required this.long,
   });
 
   int id;
@@ -68,6 +70,8 @@ class SingleServiceModel {
   Categorie categorie;
   List<StaffModel> staffs;
   List<SingleLocationModel> locations;
+  double lat;
+  double long;
 
   bool get isActive {
     return isVisible == 1;
@@ -113,6 +117,8 @@ class SingleServiceModel {
             json["staffs"].map((x) => StaffModel.fromMap(x))),
         locations: List<SingleLocationModel>.from(
             json["locations"].map((x) => SingleLocationModel.fromMap(x))),
+        lat: json["lat"],
+        long: json["long"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -147,5 +153,7 @@ class SingleServiceModel {
         "categorie": categorie.toMap(),
         "staffs": List<dynamic>.from(staffs.map((x) => x.toMap())),
         "locations": List<dynamic>.from(locations.map((x) => x.toMap())),
+        "lat": lat,
+        "long": long,
       };
 }

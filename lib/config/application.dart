@@ -3,7 +3,7 @@ import '../models/models.dart';
 
 class Application {
   static bool debug = true;
-  static String googleAPI = 'AIzaSyAXeoVOQjZGB0tTexZ2SSwQFmlrAxttjco';
+  static String googleAPI = 'AIzaSyCBU1DihLabJ0F1i6Rv-Hyetgdhfo0o9Rk';
   static String domain = 'http://192.168.1.7:8000';
   static PackageInfo? packageInfo;
   static DeviceModel? device;

@@ -165,7 +165,7 @@ class _SettingState extends State<Setting> {
                 ],
               ),
             ),
-            AppListTitle(
+            /* AppListTitle(
               title: Translate.of(context).translate('dark_mode'),
               onPressed: _onDarkModeSetting,
               trailing: Row(
@@ -188,7 +188,7 @@ class _SettingState extends State<Setting> {
                 ],
               ),
             ),
-            /*AppListTitle(
+            AppListTitle(
               title: Translate.of(context).translate('notification'),
               trailing: CupertinoSwitch(
                 activeColor: Theme.of(context).primaryColor,
